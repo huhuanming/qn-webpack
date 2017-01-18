@@ -47,6 +47,10 @@ module.exports = class QiniuPlugin {
       };
 
       filesNames.map(fileName => {
+        if (this.options.filter(fileName)) {
+          return
+        }
+
         let file = assets[fileName] || {};
         if (!file.emitted) return;
 
